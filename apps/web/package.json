@@ -10,16 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@repo/shared": "workspace:*",
     "@tanstack/react-query": "^5.22.2",
+    "clsx": "^2.1.0",
     "hono": "^4.0.0",
     "lucide-react": "^0.331.0",
-    "clsx": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.11.0",
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
@@ -27,9 +31,6 @@
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4",
-    "@repo/tsconfig": "workspace:*",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/tailwind-config": "workspace:*"
+    "vite": "^5.1.4"
   }
 }
