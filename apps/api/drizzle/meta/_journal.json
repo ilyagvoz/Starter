@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1767144956077,
+      "tag": "0000_happy_iron_patriot",
+      "breakpoints": true
+    }
+  ]
+}
