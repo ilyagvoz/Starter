@@ -1,0 +1,33 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push:sqlite",
+    "db:seed": "bun run src/db/seed.ts",
+    "db:studio": "drizzle-kit studio",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.7.6",
+    "@libsql/client": "^0.5.0",
+    "@repo/shared": "workspace:*",
+    "dotenv": "^16.4.1",
+    "drizzle-orm": "^0.29.3",
+    "hono": "^4.0.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.20.13",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  }
+}
