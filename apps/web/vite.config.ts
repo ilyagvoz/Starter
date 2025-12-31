@@ -16,4 +16,14 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: "./vitest.setup.ts",
   },
+  server: {
+    port: 3100,
+    proxy: {
+      "/api": {
+        target: "http://localhost:3111",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
