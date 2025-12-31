@@ -84,7 +84,7 @@ pnpm dev
 ```
 
 *   **API**: http://localhost:3111
-*   **Web**: http://localhost:5173
+*   **Web**: http://localhost:3100
 
 ## 📦 Scripts
 
