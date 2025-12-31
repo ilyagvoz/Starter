@@ -21,7 +21,7 @@ function Layout() {
             <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-600 text-white">
               <Zap size={18} fill="currentColor" />
             </div>
-            <span>TurboStart</span>
+            <span>Start</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             <Link to="/features" className={`transition-colors ${isActive("/features")}`}>Features</Link>
@@ -45,7 +45,7 @@ function Layout() {
 
       <footer className="flex-none border-t border-slate-800 bg-slate-950 py-3">
         <div className="container mx-auto px-4 text-center text-[10px] text-slate-600 uppercase tracking-widest">
-          © 2024 TurboStart • Built with Bun & Turborepo
+          © 2024 Start • Built with Bun & Turborepo
         </div>
       </footer>
     </div>

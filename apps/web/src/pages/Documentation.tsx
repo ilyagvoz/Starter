@@ -9,7 +9,7 @@ export default function Documentation() {
           Documentation
         </h1>
         <p className="text-xl text-slate-400">
-          Getting started with the TurboStart Monorepo.
+          Getting started with the Start Monorepo.
         </p>
       </div>
 

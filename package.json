@@ -1,5 +1,5 @@
 {
-  "name": "starter-monorepo",
+  "name": "start",
   "private": true,
   "scripts": {
     "build": "turbo run build",
