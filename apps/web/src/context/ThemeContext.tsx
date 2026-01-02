@@ -15,10 +15,14 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function isTheme(value: unknown): value is Theme {
+  return value === "light" || value === "dark";
+}
+
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem("theme");
-    return (saved as Theme) || "dark";
+    return isTheme(saved) ? saved : "dark";
   });
 
   useEffect(() => {

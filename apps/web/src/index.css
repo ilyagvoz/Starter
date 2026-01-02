@@ -15,6 +15,7 @@
   --muted: var(--color-slate-100);
   --muted-foreground: var(--color-slate-600);
   --border: var(--color-slate-200);
+  --gradient-stop: rgba(79, 70, 229, 0.05);
 }
 
 .dark {
@@ -23,6 +24,7 @@
   --muted: var(--color-slate-900);
   --muted-foreground: var(--color-slate-500);
   --border: var(--color-slate-800);
+  --gradient-stop: rgba(79, 70, 229, 0.1);
 }
 
 @layer base {
@@ -30,8 +32,8 @@
     @apply bg-background text-foreground antialiased;
     background-image: radial-gradient(
       circle at top center,
-      rgba(79, 70, 229, 0.05) 0%,
-      rgba(15, 23, 42, 0) 50%
+      var(--gradient-stop) 0%,
+      transparent 50%
     );
     min-height: 100vh;
   }

@@ -49,7 +49,7 @@ export default function Register() {
       <Card className="w-full max-w-md p-6">
         <h1 className="text-2xl font-bold mb-6 text-center">Register</h1>
         {error && (
-          <div className="bg-red-100 text-red-700 p-3 rounded mb-4">
+          <div className="bg-red-500/10 text-red-600 dark:text-red-400 p-3 rounded-lg border border-red-500/20 mb-4 text-sm font-medium">
             {error}
           </div>
         )}
