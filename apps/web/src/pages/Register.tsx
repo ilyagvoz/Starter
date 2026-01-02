@@ -29,7 +29,7 @@ export default function Register() {
 
       login(data.token, data.user);
       navigate("/");
-    } catch (err) {
+    } catch {
       setError("An error occurred");
     }
   };

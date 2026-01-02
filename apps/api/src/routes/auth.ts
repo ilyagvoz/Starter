@@ -29,7 +29,8 @@ app.post("/register", zValidator("json", registerSchema), async (c) => {
   }).returning();
 
   const user = result[0];
-  const { password: _, ...userWithoutPassword } = user;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { password: _dbPassword, ...userWithoutPassword } = user;
 
   const token = await sign({ id: user.id, email: user.email }, JWT_SECRET);
 
@@ -52,7 +53,8 @@ app.post("/login", zValidator("json", loginSchema), async (c) => {
     return c.json({ error: "Invalid credentials" }, 401);
   }
 
-  const { password: _, ...userWithoutPassword } = user;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { password: _dbPassword, ...userWithoutPassword } = user;
   const token = await sign({ id: user.id, email: user.email }, JWT_SECRET);
 
   return c.json({ user: userWithoutPassword, token });
@@ -75,9 +77,10 @@ app.get("/me", async (c) => {
         return c.json({ error: "User not found" }, 404);
     }
 
-    const { password: _, ...userWithoutPassword } = user;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { password: _dbPassword, ...userWithoutPassword } = user;
     return c.json({ user: userWithoutPassword });
-  } catch (e) {
+  } catch {
     return c.json({ error: "Unauthorized" }, 401);
   }
 });

@@ -1,12 +1,10 @@
 import { describe, expect, it, beforeAll, beforeEach } from "bun:test";
 import { join } from "path";
 import { readdirSync, readFileSync } from "fs";
-import { type InferSelectModel } from "drizzle-orm";
 import { db, client } from "./db";
 import { users } from "./db/schema";
 import app from "./index";
 
-type User = InferSelectModel<typeof users>;
 
 // Setup: Run migrations on the in-memory DB before tests start
 beforeAll(async () => {

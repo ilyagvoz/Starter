@@ -2,7 +2,6 @@ import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { cors } from "hono/cors";
 import { db } from "./db";
-import { users } from "./db/schema";
 import auth from "./routes/auth";
 
 const app = new Hono();

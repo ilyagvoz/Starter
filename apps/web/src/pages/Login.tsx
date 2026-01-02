@@ -28,7 +28,7 @@ export default function Login() {
 
       login(data.token, data.user);
       navigate("/");
-    } catch (err) {
+    } catch {
       setError("An error occurred");
     }
   };
