@@ -1,0 +1,17 @@
+{
+  "extends": "./packages/tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "target": "ES2022",
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    "scripts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

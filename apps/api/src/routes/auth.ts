@@ -22,11 +22,14 @@ app.post("/register", zValidator("json", registerSchema), async (c) => {
 
   const hashedPassword = await Bun.password.hash(password);
 
-  const result = await db.insert(users).values({
-    name,
-    email,
-    password: hashedPassword,
-  }).returning();
+  const result = await db
+    .insert(users)
+    .values({
+      name,
+      email,
+      password: hashedPassword,
+    })
+    .returning();
 
   const user = result[0];
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -70,15 +73,15 @@ app.get("/me", async (c) => {
   try {
     const payload = await verify(token, JWT_SECRET);
     const user = await db.query.users.findFirst({
-        where: eq(users.email, payload.email as string)
+      where: eq(users.email, payload.email as string),
     });
 
     if (!user) {
-        return c.json({ error: "User not found" }, 404);
+      return c.json({ error: "User not found" }, 404);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { password: _dbPassword, ...userWithoutPassword } = user;
+    const { password: _dbPassword, ...userWithoutPassword } = user;
     return c.json({ user: userWithoutPassword });
   } catch {
     return c.json({ error: "Unauthorized" }, 401);

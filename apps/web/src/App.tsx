@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import { Zap } from "lucide-react";
 import { Button } from "./components/ui/Button";
 import Home from "./pages/Home";
@@ -13,33 +19,62 @@ function Navbar() {
   const { user, logout } = useAuth();
 
   const isActive = (path: string) => {
-    return location.pathname === path ? "text-white" : "text-slate-400 hover:text-white";
+    return location.pathname === path
+      ? "text-white"
+      : "text-slate-400 hover:text-white";
   };
 
   return (
     <header className="flex-none border-b border-slate-800 bg-slate-950/80 backdrop-blur">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2 font-bold text-lg tracking-tight hover:opacity-80 transition-opacity">
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
+        >
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-600 text-white">
             <Zap size={18} fill="currentColor" />
           </div>
           <span>Start</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          <Link to="/features" className={`transition-colors ${isActive("/features")}`}>Features</Link>
-          <Link to="/docs" className={`transition-colors ${isActive("/docs")}`}>Documentation</Link>
-          <a href="https://github.com/ilyagvoz/Starter" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors">GitHub</a>
+          <Link
+            to="/features"
+            className={`transition-colors ${isActive("/features")}`}
+          >
+            Features
+          </Link>
+          <Link to="/docs" className={`transition-colors ${isActive("/docs")}`}>
+            Documentation
+          </Link>
+          <a
+            href="https://github.com/ilyagvoz/Starter"
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-400 hover:text-white transition-colors"
+          >
+            GitHub
+          </a>
         </nav>
         <div className="flex items-center gap-4">
           {user ? (
-              <div className="flex items-center gap-4">
-                  <span className="text-sm text-slate-300 hidden md:inline">Hello, {user.name}</span>
-                  <Button size="sm" variant="outline" onClick={logout}>Logout</Button>
-              </div>
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-slate-300 hidden md:inline">
+                Hello, {user.name}
+              </span>
+              <Button size="sm" variant="outline" onClick={logout}>
+                Logout
+              </Button>
+            </div>
           ) : (
             <>
-              <Link to="/login"><Button variant="ghost" size="sm">Login</Button></Link>
-              <Link to="/register"><Button size="sm">Get Started</Button></Link>
+              <Link to="/login">
+                <Button variant="ghost" size="sm">
+                  Login
+                </Button>
+              </Link>
+              <Link to="/register">
+                <Button size="sm">Get Started</Button>
+              </Link>
             </>
           )}
         </div>

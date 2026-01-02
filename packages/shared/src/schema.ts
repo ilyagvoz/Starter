@@ -18,9 +18,11 @@ export const loginSchema = z.object({
 
 export type LoginInput = z.infer<typeof loginSchema>;
 
-export const userSchema = createUserSchema.extend({
-  id: z.number(),
-  createdAt: z.date(),
-}).omit({ password: true });
+export const userSchema = createUserSchema
+  .extend({
+    id: z.number(),
+    createdAt: z.date(),
+  })
+  .omit({ password: true });
 
 export type User = z.infer<typeof userSchema>;

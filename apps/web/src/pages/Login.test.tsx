@@ -3,7 +3,6 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import Login from "./Login";
 
-
 // Mock useNavigate
 const mockNavigate = vi.fn();
 vi.mock("react-router-dom", async () => {
@@ -44,7 +43,7 @@ describe("Login Page", () => {
     render(
       <MemoryRouter>
         <Login />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     expect(screen.getByRole("heading", { name: "Login" })).toBeInTheDocument();
@@ -65,7 +64,7 @@ describe("Login Page", () => {
     render(
       <MemoryRouter>
         <Login />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     fireEvent.change(screen.getByLabelText("Email"), {
@@ -80,9 +79,12 @@ describe("Login Page", () => {
       expect(mockPost).toHaveBeenCalledWith({
         json: { email: "test@example.com", password: "password123" },
       });
-      expect(mockLogin).toHaveBeenCalledWith("fake-token", expect.objectContaining({
-        email: "test@example.com"
-      }));
+      expect(mockLogin).toHaveBeenCalledWith(
+        "fake-token",
+        expect.objectContaining({
+          email: "test@example.com",
+        }),
+      );
       expect(mockNavigate).toHaveBeenCalledWith("/");
     });
   });
@@ -96,7 +98,7 @@ describe("Login Page", () => {
     render(
       <MemoryRouter>
         <Login />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     fireEvent.change(screen.getByLabelText("Email"), {

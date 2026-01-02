@@ -22,7 +22,7 @@ app.get("/users", async (c) => {
       name: true,
       email: true,
       createdAt: true,
-    }
+    },
   });
   return c.json(allUsers);
 });

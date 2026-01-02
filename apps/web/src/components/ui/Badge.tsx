@@ -14,7 +14,8 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
     destructive:
       "border-transparent bg-red-500 text-white shadow hover:bg-red-600",
     outline: "text-slate-100 border-slate-700",
-    success: "border-transparent bg-emerald-500/15 text-emerald-500 hover:bg-emerald-500/25",
+    success:
+      "border-transparent bg-emerald-500/15 text-emerald-500 hover:bg-emerald-500/25",
   };
 
   return (
@@ -22,7 +23,7 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
       className={cn(
         "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2",
         variants[variant],
-        className
+        className,
       )}
       {...props}
     />

@@ -1,5 +1,10 @@
 import { Badge } from "../components/ui/Badge";
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/Card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/Card";
 import { Check, Code2, Layers, Zap } from "lucide-react";
 
 export default function Features() {
@@ -70,7 +75,15 @@ export default function Features() {
   );
 }
 
-function TechCard({ title, description, icon }: { title: string; description: string; icon: React.ReactNode }) {
+function TechCard({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}) {
   return (
     <Card className="border-slate-800 bg-slate-900/50">
       <CardHeader className="flex flex-row items-center gap-4 pb-2">
@@ -86,10 +99,19 @@ function TechCard({ title, description, icon }: { title: string; description: st
   );
 }
 
-function FeatureHighlight({ title, description }: { title: string; description: string }) {
+function FeatureHighlight({
+  title,
+  description,
+}: {
+  title: string;
+  description: string;
+}) {
   return (
     <div className="rounded-lg border border-slate-800 bg-slate-900/30 p-6">
-      <Badge variant="outline" className="mb-3 text-indigo-400 border-indigo-500/30">
+      <Badge
+        variant="outline"
+        className="mb-3 text-indigo-400 border-indigo-500/30"
+      >
         {title}
       </Badge>
       <p className="text-sm text-slate-400">{description}</p>

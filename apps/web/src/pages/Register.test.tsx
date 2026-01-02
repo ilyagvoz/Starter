@@ -43,14 +43,18 @@ describe("Register Page", () => {
     render(
       <MemoryRouter>
         <Register />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
-    expect(screen.getByRole("heading", { name: "Register" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Register" }),
+    ).toBeInTheDocument();
     expect(screen.getByLabelText("Name")).toBeInTheDocument();
     expect(screen.getByLabelText("Email")).toBeInTheDocument();
     expect(screen.getByLabelText("Password")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Register" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "Register" }),
+    ).toBeInTheDocument();
   });
 
   it("handles successful registration", async () => {
@@ -65,7 +69,7 @@ describe("Register Page", () => {
     render(
       <MemoryRouter>
         <Register />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     fireEvent.change(screen.getByLabelText("Name"), {
@@ -81,11 +85,18 @@ describe("Register Page", () => {
 
     await waitFor(() => {
       expect(mockPost).toHaveBeenCalledWith({
-        json: { name: "New User", email: "new@example.com", password: "password123" },
+        json: {
+          name: "New User",
+          email: "new@example.com",
+          password: "password123",
+        },
       });
-      expect(mockLogin).toHaveBeenCalledWith("fake-token", expect.objectContaining({
-        email: "new@example.com"
-      }));
+      expect(mockLogin).toHaveBeenCalledWith(
+        "fake-token",
+        expect.objectContaining({
+          email: "new@example.com",
+        }),
+      );
       expect(mockNavigate).toHaveBeenCalledWith("/");
     });
   });
@@ -99,7 +110,7 @@ describe("Register Page", () => {
     render(
       <MemoryRouter>
         <Register />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
 
     fireEvent.change(screen.getByLabelText("Name"), {

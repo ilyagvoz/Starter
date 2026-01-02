@@ -34,7 +34,7 @@ describe("Home Page", () => {
     fetchMock.mockReturnValue(new Promise(() => {}));
 
     render(<Home />, { wrapper });
-    
+
     // Check for skeleton loaders (we used animate-pulse in the component)
     const skeletons = document.querySelectorAll(".animate-pulse");
     expect(skeletons.length).toBeGreaterThan(0);
@@ -42,8 +42,18 @@ describe("Home Page", () => {
 
   it("renders users when data loads", async () => {
     const mockUsers = [
-      { id: 1, name: "Alice", email: "alice@example.com", createdAt: new Date().toISOString() },
-      { id: 2, name: "Bob", email: "bob@example.com", createdAt: new Date().toISOString() },
+      {
+        id: 1,
+        name: "Alice",
+        email: "alice@example.com",
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: 2,
+        name: "Bob",
+        email: "bob@example.com",
+        createdAt: new Date().toISOString(),
+      },
     ];
 
     fetchMock.mockResolvedValue({

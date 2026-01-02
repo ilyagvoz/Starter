@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { hc } from "hono/client";
 
 const API_URL = import.meta.env.VITE_API_URL || "/api";
@@ -26,7 +32,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem("token"));
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem("token"),
+  );
   const [loading, setLoading] = useState(true);
 
   const logout = () => {
@@ -37,32 +45,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const initAuth = async () => {
-        if (token) {
-            localStorage.setItem("token", token);
-            try {
-                const res = await client.auth.me.$get(
-                    {},
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    }
-                );
-                if (res.ok) {
-                    const data = await res.json();
-                    setUser(data.user);
-                } else {
-                    logout();
-                }
-            } catch (error) {
-                console.error("Auth check failed", error);
-                logout();
-            }
-        } else {
-            localStorage.removeItem("token");
-            setUser(null);
+      if (token) {
+        localStorage.setItem("token", token);
+        try {
+          const res = await client.auth.me.$get(
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            },
+          );
+          if (res.ok) {
+            const data = await res.json();
+            setUser(data.user);
+          } else {
+            logout();
+          }
+        } catch (error) {
+          console.error("Auth check failed", error);
+          logout();
         }
-        setLoading(false);
+      } else {
+        localStorage.removeItem("token");
+        setUser(null);
+      }
+      setLoading(false);
     };
     initAuth();
   }, [token]);
@@ -73,13 +81,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(newUser);
   };
 
-
   if (loading) {
-      return <div>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, isAuthenticated: !!user, client }}>
+    <AuthContext.Provider
+      value={{ user, token, login, logout, isAuthenticated: !!user, client }}
+    >
       {children}
     </AuthContext.Provider>
   );
