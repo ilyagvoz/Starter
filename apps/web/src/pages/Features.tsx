@@ -9,12 +9,12 @@ import { Check, Code2, Layers, Zap } from "lucide-react";
 
 export default function Features() {
   return (
-    <div className="container mx-auto px-4 py-8 text-slate-200">
+    <div className="container mx-auto px-4 py-8 text-foreground">
       <div className="mb-12 text-center">
         <h1 className="mb-4 text-3xl font-extrabold tracking-tight md:text-5xl">
           World-Class <span className="text-indigo-500">Tech Stack</span>
         </h1>
-        <p className="text-slate-400">
+        <p className="text-muted-foreground">
           Curated choices for maximum performance and developer experience.
         </p>
       </div>
@@ -85,15 +85,17 @@ function TechCard({
   icon: React.ReactNode;
 }) {
   return (
-    <Card className="border-slate-800 bg-slate-900/50">
+    <Card className="border-border bg-muted/50">
       <CardHeader className="flex flex-row items-center gap-4 pb-2">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
           {icon}
         </div>
         <CardTitle className="text-xl">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
+        <p className="text-muted-foreground text-sm leading-relaxed">
+          {description}
+        </p>
       </CardContent>
     </Card>
   );
@@ -107,14 +109,14 @@ function FeatureHighlight({
   description: string;
 }) {
   return (
-    <div className="rounded-lg border border-slate-800 bg-slate-900/30 p-6">
+    <div className="rounded-lg border border-border bg-muted/30 p-6">
       <Badge
         variant="outline"
         className="mb-3 text-indigo-400 border-indigo-500/30"
       >
         {title}
       </Badge>
-      <p className="text-sm text-slate-400">{description}</p>
+      <p className="text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }

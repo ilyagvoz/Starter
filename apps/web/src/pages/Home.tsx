@@ -31,7 +31,7 @@ export default function Home() {
             The Ultimate{" "}
             <span className="text-indigo-500">Full-Stack Monorepo</span>
           </h1>
-          <p className="mx-auto mb-6 max-w-2xl text-slate-400 text-lg">
+          <p className="mx-auto mb-6 max-w-2xl text-muted-foreground text-lg">
             Build production-ready applications faster with Bun, React, Hono,
             and Turborepo. Type-safe from database to frontend.
           </p>
@@ -60,7 +60,7 @@ export default function Home() {
 
           {/* Users Demo Section */}
           <section className="flex flex-col min-h-0">
-            <Card className="flex flex-col h-full border-slate-800 bg-slate-900/50 overflow-hidden">
+            <Card className="flex flex-col h-full border-border bg-muted/50 overflow-hidden">
               <CardHeader className="flex-none p-4">
                 <div className="flex items-center justify-between">
                   <div>
@@ -80,7 +80,7 @@ export default function Home() {
                     {[1, 2, 3].map((i) => (
                       <div
                         key={i}
-                        className="h-12 w-full rounded-lg border border-slate-800 animate-pulse bg-slate-800/20"
+                        className="h-12 w-full rounded-lg border border-border animate-pulse bg-muted/20"
                       />
                     ))}
                   </div>
@@ -89,22 +89,22 @@ export default function Home() {
                     {users?.map((user) => (
                       <div
                         key={user.id}
-                        className="flex items-center justify-between rounded-lg border border-slate-800 bg-slate-900/50 p-3 transition-colors hover:bg-slate-800/50"
+                        className="flex items-center justify-between rounded-lg border border-border bg-muted/50 p-3 transition-colors hover:bg-muted/50"
                       >
                         <div className="flex items-center gap-3">
                           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500/10 text-indigo-500 font-bold text-xs">
                             {user.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-slate-200">
+                            <div className="text-sm font-medium text-foreground">
                               {user.name}
                             </div>
-                            <div className="text-xs text-slate-500">
+                            <div className="text-xs text-muted-foreground">
                               {user.email}
                             </div>
                           </div>
                         </div>
-                        <div className="text-[10px] text-slate-600 font-mono">
+                        <div className="text-[10px] text-muted-foreground font-mono">
                           ID: {user.id}
                         </div>
                       </div>
@@ -130,15 +130,15 @@ function FeatureCard({
   description: string;
 }) {
   return (
-    <Card className="border-slate-800 bg-slate-900/50 hover:bg-slate-900 hover:border-slate-700 transition-colors">
+    <Card className="border-border bg-muted/50 hover:bg-muted hover:border-border transition-colors">
       <CardHeader className="p-4 pb-2 flex flex-row items-center gap-3 space-y-0">
-        <div className="h-8 w-8 flex items-center justify-center rounded bg-slate-800">
+        <div className="h-8 w-8 flex items-center justify-center rounded bg-muted">
           {icon}
         </div>
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>
       <CardContent className="p-4 pt-1">
-        <p className="text-sm text-slate-400">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </CardContent>
     </Card>
   );

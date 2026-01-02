@@ -61,7 +61,7 @@ export default function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-border rounded bg-background text-foreground"
               required
             />
           </div>
@@ -77,7 +77,7 @@ export default function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-border rounded bg-background text-foreground"
               required
             />
           </div>
@@ -87,7 +87,7 @@ export default function Login() {
         </form>
         <div className="mt-4 text-center text-sm">
           Don't have an account?{" "}
-          <Link to="/register" className="text-blue-600 hover:underline">
+          <Link to="/register" className="text-indigo-600 hover:underline">
             Register
           </Link>
         </div>

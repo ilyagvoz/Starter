@@ -1,12 +1,36 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+}
+
+:root {
+  --background: var(--color-slate-50);
+  --foreground: var(--color-slate-950);
+  --muted: var(--color-slate-100);
+  --muted-foreground: var(--color-slate-500);
+  --border: var(--color-slate-200);
+}
+
+.dark {
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+  --muted: var(--color-slate-900);
+  --muted-foreground: var(--color-slate-400);
+  --border: var(--color-slate-800);
+}
+
 @layer base {
   body {
-    @apply bg-slate-950 text-slate-100 antialiased;
+    @apply bg-background text-foreground antialiased;
     background-image: radial-gradient(
       circle at top center,
-      rgba(79, 70, 229, 0.1) 0%,
+      rgba(79, 70, 229, 0.05) 0%,
       rgba(15, 23, 42, 0) 50%
     );
     min-height: 100vh;

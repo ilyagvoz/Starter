@@ -62,7 +62,7 @@ export default function Register() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-border rounded bg-background text-foreground"
               required
             />
           </div>
@@ -75,7 +75,7 @@ export default function Register() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-border rounded bg-background text-foreground"
               required
             />
           </div>
@@ -91,7 +91,7 @@ export default function Register() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border border-border rounded bg-background text-foreground"
               required
               minLength={8}
             />
@@ -102,7 +102,7 @@ export default function Register() {
         </form>
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-600 hover:underline">
+          <Link to="/login" className="text-indigo-600 hover:underline">
             Login
           </Link>
         </div>
