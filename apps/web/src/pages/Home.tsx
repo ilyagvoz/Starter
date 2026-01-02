@@ -1,7 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import type { User } from "@repo/shared";
 import { Badge } from "../components/ui/Badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/Card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/Card";
 import { Zap, Shield, Database } from "lucide-react";
 
 export default function Home() {
@@ -22,11 +28,12 @@ export default function Home() {
             v1.0 Ready
           </Badge>
           <h1 className="mb-3 text-4xl font-extrabold tracking-tight md:text-6xl">
-            The Ultimate <span className="text-indigo-500">Full-Stack Monorepo</span>
+            The Ultimate{" "}
+            <span className="text-indigo-500">Full-Stack Monorepo</span>
           </h1>
           <p className="mx-auto mb-6 max-w-2xl text-slate-400 text-lg">
-            Build production-ready applications faster with Bun, React, Hono, and
-            Turborepo. Type-safe from database to frontend.
+            Build production-ready applications faster with Bun, React, Hono,
+            and Turborepo. Type-safe from database to frontend.
           </p>
         </section>
 
@@ -62,14 +69,19 @@ export default function Home() {
                       Fetching from Hono API.
                     </CardDescription>
                   </div>
-                  <Badge variant="outline" className="text-[10px]">GET /api/users</Badge>
+                  <Badge variant="outline" className="text-[10px]">
+                    GET /api/users
+                  </Badge>
                 </div>
               </CardHeader>
               <CardContent className="flex-1 p-4 pt-0 overflow-y-auto">
                 {isLoading ? (
                   <div className="space-y-2">
                     {[1, 2, 3].map((i) => (
-                      <div key={i} className="h-12 w-full rounded-lg border border-slate-800 animate-pulse bg-slate-800/20" />
+                      <div
+                        key={i}
+                        className="h-12 w-full rounded-lg border border-slate-800 animate-pulse bg-slate-800/20"
+                      />
                     ))}
                   </div>
                 ) : (
@@ -84,11 +96,17 @@ export default function Home() {
                             {user.name.charAt(0).toUpperCase()}
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-slate-200">{user.name}</div>
-                            <div className="text-xs text-slate-500">{user.email}</div>
+                            <div className="text-sm font-medium text-slate-200">
+                              {user.name}
+                            </div>
+                            <div className="text-xs text-slate-500">
+                              {user.email}
+                            </div>
                           </div>
                         </div>
-                        <div className="text-[10px] text-slate-600 font-mono">ID: {user.id}</div>
+                        <div className="text-[10px] text-slate-600 font-mono">
+                          ID: {user.id}
+                        </div>
                       </div>
                     ))}
                   </div>

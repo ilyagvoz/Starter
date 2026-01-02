@@ -8,13 +8,17 @@
     "lint": "turbo run lint",
     "test": "bun run scripts/test-summary.ts",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "update-deps": "pnpm update -r"
+    "update-deps": "pnpm update -r",
+    "preflight": "bun run scripts/preflight.ts",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/node": "^25.0.3",
     "prettier": "^3.7.4",
-    "turbo": "^2.7.2"
+    "turbo": "^2.7.2",
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@8.10.0",
+  "packageManager": "pnpm@10.27.0",
   "engines": {
     "node": ">=18"
   }

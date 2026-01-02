@@ -1,0 +1,10 @@
+[dotenv@17.2.3] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Started development server: http://localhost:3111
+<-- GET /
+--> GET / [32m200[0m 0ms
+<-- POST /auth/register
+--> POST /auth/register [32m201[0m 53ms
+<-- GET /auth/me
+--> GET /auth/me [32m200[0m 2ms
+<-- GET /users
+--> GET /users [32m200[0m 1ms

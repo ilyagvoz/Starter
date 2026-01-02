@@ -9,13 +9,13 @@ async function runTests() {
   });
 
   let output = "";
-  
-  child.stdout.on("data", (data) => {
+
+  child.stdout?.on("data", (data) => {
     process.stdout.write(data);
     output += data.toString();
   });
 
-  child.stderr.on("data", (data) => {
+  child.stderr?.on("data", (data) => {
     process.stderr.write(data);
     output += data.toString();
   });

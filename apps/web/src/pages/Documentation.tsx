@@ -14,7 +14,9 @@ export default function Documentation() {
       </div>
 
       <section className="mb-12">
-        <h2 className="mb-6 text-2xl font-bold text-white">Project Structure</h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">
+          Project Structure
+        </h2>
         <Card className="border-slate-800 bg-slate-950 font-mono text-sm text-slate-300">
           <CardContent className="pt-6 overflow-x-auto">
             <pre>{`starter/
@@ -35,32 +37,28 @@ export default function Documentation() {
 
       <section className="mb-12">
         <h2 className="mb-6 text-2xl font-bold text-white">Getting Started</h2>
-        
+
         <div className="space-y-8">
-          <Step 
-            number={1} 
-            title="Install Dependencies" 
-            code="pnpm install" 
-          />
-          <Step 
-            number={2} 
-            title="Environment Setup" 
+          <Step number={1} title="Install Dependencies" code="pnpm install" />
+          <Step
+            number={2}
+            title="Environment Setup"
             description="Copy the example environment file for the API."
-            code="cp apps/api/.env.example apps/api/.env" 
+            code="cp apps/api/.env.example apps/api/.env"
           />
-          <Step 
-            number={3} 
-            title="Database Setup" 
+          <Step
+            number={3}
+            title="Database Setup"
             description="Initialize the local SQLite database and seed it."
             code={`cd apps/api
 pnpm db:push
-pnpm db:seed`} 
+pnpm db:seed`}
           />
-          <Step 
-            number={4} 
-            title="Run the App" 
+          <Step
+            number={4}
+            title="Run the App"
             description="Start both the backend and frontend in development mode."
-            code="pnpm dev" 
+            code="pnpm dev"
           />
         </div>
       </section>
@@ -72,42 +70,96 @@ pnpm db:seed`}
       <section className="mb-12">
         <h2 className="mb-6 text-2xl font-bold text-white">Testing</h2>
         <p className="text-slate-400 mb-4">
-            The monorepo ensures reliability through a multi-layer testing strategy.
+          The monorepo ensures reliability through a multi-layer testing
+          strategy.
         </p>
         <div className="space-y-4 text-slate-300">
-            <ul className="list-disc pl-6 space-y-2">
-                <li><strong className="text-white">API Integration:</strong> Tests in <code className="bg-slate-800 px-1 rounded">apps/api</code> run with <code className="bg-slate-800 px-1 rounded">bun:test</code> using an in-memory SQLite instance for fast, isolated execution.</li>
-                <li><strong className="text-white">Frontend Components:</strong> Tests in <code className="bg-slate-800 px-1 rounded">apps/web</code> use <code className="bg-slate-800 px-1 rounded">vitest</code> and <code className="bg-slate-800 px-1 rounded">@testing-library/react</code> to verify UI behavior and state.</li>
-                <li><strong className="text-white">Shared Logic:</strong> Schemas and utilities in <code className="bg-slate-800 px-1 rounded">packages/shared</code> are unit tested to ensure consistency across the stack.</li>
-            </ul>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <strong className="text-white">API Integration:</strong> Tests in{" "}
+              <code className="bg-slate-800 px-1 rounded">apps/api</code> run
+              with <code className="bg-slate-800 px-1 rounded">bun:test</code>{" "}
+              using an in-memory SQLite instance for fast, isolated execution.
+            </li>
+            <li>
+              <strong className="text-white">Frontend Components:</strong> Tests
+              in <code className="bg-slate-800 px-1 rounded">apps/web</code> use{" "}
+              <code className="bg-slate-800 px-1 rounded">vitest</code> and{" "}
+              <code className="bg-slate-800 px-1 rounded">
+                @testing-library/react
+              </code>{" "}
+              to verify UI behavior and state.
+            </li>
+            <li>
+              <strong className="text-white">Shared Logic:</strong> Schemas and
+              utilities in{" "}
+              <code className="bg-slate-800 px-1 rounded">packages/shared</code>{" "}
+              are unit tested to ensure consistency across the stack.
+            </li>
+          </ul>
         </div>
         <p className="text-slate-400 mb-4">
-            The project comes with a complete authentication system out of the box.
+          The project comes with a complete authentication system out of the
+          box.
         </p>
         <div className="space-y-4 text-slate-300">
-            <ul className="list-disc pl-6 space-y-2">
-                <li><strong className="text-white">Backend:</strong> Uses <code className="bg-slate-800 px-1 rounded">hono/jwt</code> for token generation and <code className="bg-slate-800 px-1 rounded">Bun.password</code> for secure hashing.</li>
-                <li><strong className="text-white">Frontend:</strong> Includes <code className="bg-slate-800 px-1 rounded">AuthContext</code> for managing session state and persisting tokens in LocalStorage.</li>
-                <li><strong className="text-white">Type Safety:</strong> Shared Zod schemas for registration and login validation across API and UI.</li>
-            </ul>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <strong className="text-white">Backend:</strong> Uses{" "}
+              <code className="bg-slate-800 px-1 rounded">hono/jwt</code> for
+              token generation and{" "}
+              <code className="bg-slate-800 px-1 rounded">Bun.password</code>{" "}
+              for secure hashing.
+            </li>
+            <li>
+              <strong className="text-white">Frontend:</strong> Includes{" "}
+              <code className="bg-slate-800 px-1 rounded">AuthContext</code> for
+              managing session state and persisting tokens in LocalStorage.
+            </li>
+            <li>
+              <strong className="text-white">Type Safety:</strong> Shared Zod
+              schemas for registration and login validation across API and UI.
+            </li>
+          </ul>
         </div>
       </section>
 
       <section className="mb-12">
-        <h2 className="mb-6 text-2xl font-bold text-white">Available Scripts</h2>
+        <h2 className="mb-6 text-2xl font-bold text-white">
+          Available Scripts
+        </h2>
         <div className="grid gap-4 md:grid-cols-2">
-          <ScriptCard cmd="pnpm dev" desc="Start development servers for all apps." />
+          <ScriptCard
+            cmd="pnpm dev"
+            desc="Start development servers for all apps."
+          />
           <ScriptCard cmd="pnpm build" desc="Build all apps and packages." />
           <ScriptCard cmd="pnpm lint" desc="Lint all apps and packages." />
-          <ScriptCard cmd="pnpm typecheck" desc="Run TypeScript checks across the workspace." />
-          <ScriptCard cmd="pnpm update-deps" desc="Update all dependencies recursively." />
+          <ScriptCard
+            cmd="pnpm typecheck"
+            desc="Run TypeScript checks across the workspace."
+          />
+          <ScriptCard
+            cmd="pnpm update-deps"
+            desc="Update all dependencies recursively."
+          />
         </div>
       </section>
     </div>
   );
 }
 
-function Step({ number, title, description, code }: { number: number; title: string; description?: string; code: string }) {
+function Step({
+  number,
+  title,
+  description,
+  code,
+}: {
+  number: number;
+  title: string;
+  description?: string;
+  code: string;
+}) {
   return (
     <div className="flex gap-4">
       <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-indigo-600 font-bold text-white">
@@ -117,7 +169,9 @@ function Step({ number, title, description, code }: { number: number; title: str
         <h3 className="text-lg font-semibold text-white">{title}</h3>
         {description && <p className="text-slate-400">{description}</p>}
         <div className="relative rounded-lg bg-slate-900 p-4 border border-slate-800">
-          <pre className="font-mono text-sm text-indigo-300 overflow-x-auto">{code}</pre>
+          <pre className="font-mono text-sm text-indigo-300 overflow-x-auto">
+            {code}
+          </pre>
         </div>
       </div>
     </div>
