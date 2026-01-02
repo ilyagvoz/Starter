@@ -17,4 +17,4 @@ Do not submit code or mark a task as complete if the `pnpm preflight` command fa
 
 This project includes specialized context files for AI agents to ensure consistency and quality:
 
-- **Base UI**: Current documentation and usage patterns for our UI components can be found in `.gemini/base-ui.llms.txt`. Use this as the primary reference for all UI-related tasks.
+- **Base UI**: Current documentation and usage patterns for our UI components can be found in `llms/base-ui.llms.txt`. Use this as the primary reference for all UI-related tasks.

@@ -23,11 +23,11 @@ A high-performance, type-safe, and scalable full-stack web application starter k
 
 ```text
 starter/
-├── .gemini/                 # AI agent context files (Base UI, etc.)
 ├── .github/                 # CI/CD workflows
 ├── apps/
 │   ├── api/                 # Backend (Bun + Hono + Drizzle)
 │   └── web/                 # Frontend (React + Vite + Tailwind)
+├── llms/                    # AI agent context files (Base UI, etc.)
 ├── packages/
 │   ├── shared/              # Shared logic (Zod schemas, types)
 │   ├── eslint-config/       # Shared ESLint configurations
