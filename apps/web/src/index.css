@@ -13,7 +13,7 @@
   --background: var(--color-slate-50);
   --foreground: var(--color-slate-950);
   --muted: var(--color-slate-100);
-  --muted-foreground: var(--color-slate-500);
+  --muted-foreground: var(--color-slate-600);
   --border: var(--color-slate-200);
 }
 
@@ -21,7 +21,7 @@
   --background: var(--color-slate-950);
   --foreground: var(--color-slate-50);
   --muted: var(--color-slate-900);
-  --muted-foreground: var(--color-slate-400);
+  --muted-foreground: var(--color-slate-500);
   --border: var(--color-slate-800);
 }
 

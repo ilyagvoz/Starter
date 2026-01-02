@@ -5,7 +5,8 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/Card";
-import { Check, Code2, Layers, Zap } from "lucide-react";
+import { Code2, Layers, Zap, Database, Shield } from "lucide-react";
+import { InlineCode } from "../components/ui/InlineCode";
 
 export default function Features() {
   return (
@@ -14,41 +15,41 @@ export default function Features() {
         <h1 className="mb-4 text-3xl font-extrabold tracking-tight md:text-5xl">
           World-Class <span className="text-indigo-500">Tech Stack</span>
         </h1>
-        <p className="text-muted-foreground">
+        <p className="text-muted-foreground text-lg">
           Curated choices for maximum performance and developer experience.
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-16">
         <TechCard
           title="Turborepo"
-          description="High-performance build system for TypeScript monorepos."
-          icon={<Layers className="h-6 w-6 text-purple-500" />}
+          description="High-performance build system for TypeScript monorepos. Blazing fast task execution."
+          icon={<Layers className="h-5 w-5 text-purple-500" />}
         />
         <TechCard
           title="Bun Runtime"
-          description="Ultra-fast JavaScript runtime for backend and scripts. Drop-in Node.js replacement."
-          icon={<Zap className="h-6 w-6 text-yellow-500" />}
+          description="Ultra-fast JavaScript runtime, package manager, and test runner. Drop-in Node.js replacement."
+          icon={<Zap className="h-5 w-5 text-yellow-500" />}
         />
         <TechCard
           title="Hono"
-          description="Small, fast web framework. Runs on Bun, Node, and Edge environments."
-          icon={<Code2 className="h-6 w-6 text-orange-500" />}
+          description="Small, fast web framework. Runs on Bun, Node, and Edge environments with built-in RPC."
+          icon={<Code2 className="h-5 w-5 text-orange-500" />}
         />
         <TechCard
           title="React + Vite"
-          description="Modern UI library with instant HMR and optimized builds."
-          icon={<Code2 className="h-6 w-6 text-blue-500" />}
+          description="The gold standard for modern UI development with instant HMR and optimized builds."
+          icon={<Code2 className="h-5 w-5 text-blue-500" />}
         />
         <TechCard
           title="Drizzle ORM"
-          description="TypeScript-first ORM with great inference. If you know SQL, you know Drizzle."
-          icon={<Code2 className="h-6 w-6 text-green-500" />}
+          description="TypeScript-first ORM with great inference. Lightweight, performant, and SQL-like."
+          icon={<Database className="h-5 w-5 text-emerald-500" />}
         />
         <TechCard
           title="Zod"
-          description="Schema validation for API inputs, env vars, and shared types."
-          icon={<Check className="h-6 w-6 text-indigo-500" />}
+          description="TypeScript-first schema validation with static type inference. Shared across the stack."
+          icon={<Shield className="h-5 w-5 text-indigo-500" />}
         />
       </div>
 
@@ -59,7 +60,14 @@ export default function Features() {
         <div className="grid gap-6 md:grid-cols-3">
           <FeatureHighlight
             title="Shared Schemas"
-            description="Zod schemas defined in `packages/shared` are imported by both `apps/api` (backend validation) and `apps/web` (frontend forms)."
+            description={
+              <>
+                Zod schemas defined in <InlineCode>packages/shared</InlineCode>{" "}
+                are imported by both <InlineCode>apps/api</InlineCode> (backend
+                validation) and <InlineCode>apps/web</InlineCode> (frontend
+                forms).
+              </>
+            }
           />
           <FeatureHighlight
             title="Env Validation"
@@ -67,7 +75,12 @@ export default function Features() {
           />
           <FeatureHighlight
             title="Strict TypeScript"
-            description="Configured with strict mode enabled via `packages/tsconfig` for maximum safety."
+            description={
+              <>
+                Configured with strict mode enabled via{" "}
+                <InlineCode>packages/tsconfig</InlineCode> for maximum safety.
+              </>
+            }
           />
         </div>
       </div>
@@ -75,7 +88,7 @@ export default function Features() {
   );
 }
 
-function TechCard({
+export function TechCard({
   title,
   description,
   icon,
@@ -85,12 +98,12 @@ function TechCard({
   icon: React.ReactNode;
 }) {
   return (
-    <Card className="border-border bg-muted/50">
-      <CardHeader className="flex flex-row items-center gap-4 pb-2">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
+    <Card className="border-border bg-muted/20 hover:bg-muted/40 transition-all duration-200 group">
+      <CardHeader className="flex flex-row items-center gap-4 pb-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-background border border-border shadow-sm group-hover:border-indigo-500/30 transition-colors">
           {icon}
         </div>
-        <CardTitle className="text-xl">{title}</CardTitle>
+        <CardTitle className="text-lg font-bold">{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground text-sm leading-relaxed">
@@ -101,22 +114,21 @@ function TechCard({
   );
 }
 
-function FeatureHighlight({
+export function FeatureHighlight({
   title,
   description,
 }: {
   title: string;
-  description: string;
+  description: React.ReactNode;
 }) {
   return (
-    <div className="rounded-lg border border-border bg-muted/30 p-6">
-      <Badge
-        variant="outline"
-        className="mb-3 text-indigo-400 border-indigo-500/30"
-      >
+    <div className="rounded-xl border border-border bg-muted/20 p-6 transition-colors hover:bg-muted/30">
+      <Badge variant="default" className="mb-3">
         {title}
       </Badge>
-      <p className="text-sm text-muted-foreground">{description}</p>
+      <div className="text-sm text-muted-foreground leading-relaxed">
+        {description}
+      </div>
     </div>
   );
 }

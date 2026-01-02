@@ -20,5 +20,8 @@
   },
   "peerDependencies": {
     "eslint": ">=8"
+  },
+  "devDependencies": {
+    "eslint-plugin-jsx-a11y": "^6.10.2"
   }
 }

@@ -6,3 +6,7 @@ dist
 coverage
 apps/api/*.db
 *.log
+
+# Playwright
+playwright-report/
+test-results/

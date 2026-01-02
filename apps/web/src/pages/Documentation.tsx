@@ -17,9 +17,9 @@ export default function Documentation() {
         <h2 className="mb-6 text-2xl font-bold text-foreground">
           Project Structure
         </h2>
-        <Card className="border-border bg-background font-mono text-sm text-muted-foreground">
+        <Card className="border-border bg-muted/30 font-mono text-sm text-muted-foreground">
           <CardContent className="pt-6 overflow-x-auto">
-            <pre>{`starter/
+            <pre className="text-foreground">{`starter/
 ├── .github/                 # CI/CD workflows
 ├── apps/
 │   ├── api/                 # Backend (Bun + Hono + Drizzle)
@@ -69,6 +69,31 @@ pnpm db:seed`}
         <h2 className="mb-6 text-2xl font-bold text-foreground">
           Authentication
         </h2>
+        <div className="space-y-4 text-muted-foreground">
+          <p>
+            The project comes with a complete authentication system out of the
+            box.
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>
+              <strong className="text-foreground">Backend:</strong> Uses{" "}
+              <code className="bg-muted px-1 rounded">hono/jwt</code> for token
+              generation and{" "}
+              <code className="bg-muted px-1 rounded">Bun.password</code> for
+              secure hashing.
+            </li>
+            <li>
+              <strong className="text-foreground">Frontend:</strong> Includes{" "}
+              <code className="bg-muted px-1 rounded">AuthContext</code> for
+              managing session state and persisting tokens in LocalStorage.
+            </li>
+            <li>
+              <strong className="text-foreground">Type Safety:</strong> Shared
+              Zod schemas for registration and login validation across API and
+              UI.
+            </li>
+          </ul>
+        </div>
       </section>
 
       <section className="mb-12">
@@ -99,31 +124,6 @@ pnpm db:seed`}
               and utilities in{" "}
               <code className="bg-muted px-1 rounded">packages/shared</code> are
               unit tested to ensure consistency across the stack.
-            </li>
-          </ul>
-        </div>
-        <p className="text-muted-foreground mb-4">
-          The project comes with a complete authentication system out of the
-          box.
-        </p>
-        <div className="space-y-4 text-muted-foreground">
-          <ul className="list-disc pl-6 space-y-2">
-            <li>
-              <strong className="text-foreground">Backend:</strong> Uses{" "}
-              <code className="bg-muted px-1 rounded">hono/jwt</code> for token
-              generation and{" "}
-              <code className="bg-muted px-1 rounded">Bun.password</code> for
-              secure hashing.
-            </li>
-            <li>
-              <strong className="text-foreground">Frontend:</strong> Includes{" "}
-              <code className="bg-muted px-1 rounded">AuthContext</code> for
-              managing session state and persisting tokens in LocalStorage.
-            </li>
-            <li>
-              <strong className="text-foreground">Type Safety:</strong> Shared
-              Zod schemas for registration and login validation across API and
-              UI.
             </li>
           </ul>
         </div>
@@ -167,14 +167,16 @@ function Step({
 }) {
   return (
     <div className="flex gap-4">
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-indigo-600 font-bold text-foreground">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-600/10 text-indigo-600 font-bold border border-indigo-600/20 shadow-sm">
         {number}
       </div>
       <div className="flex-1 space-y-3">
         <h3 className="text-lg font-semibold text-foreground">{title}</h3>
-        {description && <p className="text-muted-foreground">{description}</p>}
-        <div className="relative rounded-lg bg-muted p-4 border border-border">
-          <pre className="font-mono text-sm text-indigo-300 overflow-x-auto">
+        {description && (
+          <p className="text-muted-foreground leading-relaxed">{description}</p>
+        )}
+        <div className="relative rounded-lg bg-muted/50 p-4 border border-border">
+          <pre className="font-mono text-sm text-foreground overflow-x-auto">
             {code}
           </pre>
         </div>
@@ -185,12 +187,12 @@ function Step({
 
 function ScriptCard({ cmd, desc }: { cmd: string; desc: string }) {
   return (
-    <div className="rounded-lg border border-border bg-muted/30 p-4 flex items-center gap-4">
-      <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded bg-muted">
-        <Terminal className="h-5 w-5 text-muted-foreground" />
+    <div className="rounded-lg border border-border bg-muted/30 p-4 flex items-center gap-4 transition-colors hover:bg-muted/50">
+      <div className="h-10 w-10 shrink-0 flex items-center justify-center rounded bg-muted border border-border">
+        <Terminal className="h-5 w-5 text-indigo-500" />
       </div>
       <div>
-        <div className="font-mono text-sm font-bold text-indigo-400">{cmd}</div>
+        <div className="font-mono text-sm font-bold text-foreground">{cmd}</div>
         <div className="text-sm text-muted-foreground">{desc}</div>
       </div>
     </div>
