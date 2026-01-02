@@ -10,12 +10,12 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
     default:
       "border-transparent bg-indigo-600 text-white shadow hover:bg-indigo-700",
     secondary:
-      "border-transparent bg-slate-800 text-slate-100 hover:bg-slate-700",
+      "border-transparent bg-muted text-muted-foreground hover:bg-muted/80",
     destructive:
       "border-transparent bg-red-500 text-white shadow hover:bg-red-600",
-    outline: "text-slate-100 border-slate-700",
+    outline: "text-foreground border-border bg-transparent",
     success:
-      "border-transparent bg-emerald-500/15 text-emerald-500 hover:bg-emerald-500/25",
+      "border-transparent bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500/30",
   };
 
   return (
