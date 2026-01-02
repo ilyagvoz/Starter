@@ -10,12 +10,13 @@ A high-performance, type-safe, and scalable full-stack web application starter k
 | **Package Manager** | [pnpm](https://pnpm.io/)                                  | Fast, disk-efficient package manager.                             |
 | **Runtime**         | [Bun](https://bun.sh/)                                    | Ultra-fast JavaScript runtime for backend and scripts.            |
 | **Frontend**        | [React](https://react.dev/) + [Vite](https://vitejs.dev/) | Modern UI library with instant HMR and optimized builds.          |
+| **UI Components**   | [Base UI](https://base-ui.com/)                           | Accessible, unstyled React components and primitives.             |
 | **Backend**         | [Hono](https://hono.dev/)                                 | Small, fast web framework running on Bun.                         |
 | **Database**        | [libsql](https://github.com/tursodatabase/libsql)         | Open-source fork of SQLite, edge-ready and compatible with Turso. |
 | **ORM**             | [Drizzle ORM](https://orm.drizzle.team/)                  | TypeScript-first ORM with great inference.                        |
 | **Validation**      | [Zod](https://zod.dev/)                                   | Schema validation for API inputs, env vars, and shared types.     |
 | **Authentication**  | [Hono JWT](https://hono.dev/helpers/jwt)                  | JSON Web Token based authentication with password hashing.        |
-| **Styling**         | [Tailwind CSS](https://tailwindcss.com/)                  | Utility-first CSS framework.                                      |
+| **Styling**         | [Tailwind CSS](https://tailwindcss.com/)                  | Utility-first CSS framework with full Light/Dark mode support.    |
 | **CI/CD**           | GitHub Actions                                            | Automated workflows for linting and building.                     |
 
 ## 📂 Project Structure
@@ -32,7 +33,7 @@ starter/
 │   │   └── package.json
 │   └── web/                 # Frontend (React + Vite + Tailwind)
 │       ├── src/
-│       │   ├── components/  # UI Components
+│       │   ├── components/  # UI Components (Base UI powered)
 │       │   ├── lib/         # Utils
 │       │   └── App.tsx
 │       └── package.json
@@ -89,27 +90,13 @@ pnpm dev
 - **API**: http://localhost:3111
 - **Web**: http://localhost:3100
 
-## 📦 Scripts
-
-- `pnpm dev`: Start development servers for all apps.
-- `pnpm build`: Build all apps and packages.
-- `pnpm lint`: Lint all apps and packages.
-- `pnpm typecheck`: Run TypeScript checks across the workspace.
-- `pnpm format`: Format code with Prettier.
-- `pnpm update-deps`: Recursive update of all dependencies.
-
-## 🔒 Type Safety Features
-
-- **Shared Schemas**: Zod schemas defined in `packages/shared` are imported by both `apps/api` (for request validation) and `apps/web` (for form validation).
-- **Env Validation**: `apps/api/src/env.ts` ensures the application fails fast if required environment variables are missing.
-  | **Authentication** | [Hono JWT](https://hono.dev/helpers/jwt) | JSON Web Token based authentication with password hashing.
-- **Strict TypeScript**: Configured with strict mode enabled via `packages/tsconfig`.
-
-## ✨ Features
+## ✨ Key Features
 
 - **Full-Stack Authentication**: Complete Register/Login flow with JWT and `Bun.password` hashing.
-- **Type-Safe API Client**: Hono RPC client for end-to-end type safety.
-- **Protected Routes**: React Context based auth state and protected route examples.
+- **Accessible UI**: Powered by **Base UI**, ensuring W3C ARIA compliance and high-quality UX.
+- **Dark Mode**: Native support for Light and Dark modes using Tailwind CSS variables.
+- **Type-Safe API**: Hono RPC client for end-to-end type safety between backend and frontend.
+- **Shared Schemas**: Zod schemas defined in `packages/shared` for consistent validation across the stack.
 
 ## 🧪 Testing
 
