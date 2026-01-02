@@ -20,10 +20,10 @@ export default function Register() {
         json: { name, email, password }
       });
 
-      const data = await res.json();
+      let data; try { data = await res.json(); } catch { data = { error: "Invalid response from server" }; }
 
       if (!res.ok) {
-        setError(data.error || "Registration failed");
+        setError(typeof data.error === "object" ? JSON.stringify(data.error) : (data.error || "Registration failed"));
         return;
       }
 

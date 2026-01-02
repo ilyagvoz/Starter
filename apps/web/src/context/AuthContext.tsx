@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { hc } from "hono/client";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3111";
+const API_URL = import.meta.env.VITE_API_URL || "/api";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const client = hc<any>(API_URL) as any;
 
