@@ -42,5 +42,5 @@ jobs:
         run: pnpm lint
 
       # We could add a test step here later when tests are set up
-      # - name: Test
-      #   run: pnpm test
+      - name: Test
+        run: pnpm test
