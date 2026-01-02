@@ -22,7 +22,7 @@ function isTheme(value: unknown): value is Theme {
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem("theme");
-    return isTheme(saved) ? saved : "dark";
+    return isTheme(saved) ? saved : "light";
   });
 
   useEffect(() => {
