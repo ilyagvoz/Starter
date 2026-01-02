@@ -14,6 +14,7 @@ A high-performance, type-safe, and scalable full-stack web application starter k
 | **Database** | [libsql](https://github.com/tursodatabase/libsql) | Open-source fork of SQLite, edge-ready and compatible with Turso. |
 | **ORM** | [Drizzle ORM](https://orm.drizzle.team/) | TypeScript-first ORM with great inference. |
 | **Validation** | [Zod](https://zod.dev/) | Schema validation for API inputs, env vars, and shared types. |
+| **Authentication** | [Hono JWT](https://hono.dev/helpers/jwt) | JSON Web Token based authentication with password hashing.
 | **Styling** | [Tailwind CSS](https://tailwindcss.com/) | Utility-first CSS framework. |
 | **CI/CD** | GitHub Actions | Automated workflows for linting and building. |
 
@@ -93,9 +94,29 @@ pnpm dev
 *   `pnpm lint`: Lint all apps and packages.
 *   `pnpm typecheck`: Run TypeScript checks across the workspace.
 *   `pnpm format`: Format code with Prettier.
+*   `pnpm update-deps`: Recursive update of all dependencies.
 
 ## 🔒 Type Safety Features
 
 *   **Shared Schemas**: Zod schemas defined in `packages/shared` are imported by both `apps/api` (for request validation) and `apps/web` (for form validation).
 *   **Env Validation**: `apps/api/src/env.ts` ensures the application fails fast if required environment variables are missing.
+| **Authentication** | [Hono JWT](https://hono.dev/helpers/jwt) | JSON Web Token based authentication with password hashing.
 *   **Strict TypeScript**: Configured with strict mode enabled via `packages/tsconfig`.
+## ✨ Features
+
+- **Full-Stack Authentication**: Complete Register/Login flow with JWT and `Bun.password` hashing.
+- **Type-Safe API Client**: Hono RPC client for end-to-end type safety.
+- **Protected Routes**: React Context based auth state and protected route examples.
+
+## 🧪 Testing
+
+The project employs a comprehensive testing strategy:
+
+- **Backend (`apps/api`)**: Integration tests using `bun:test` and an in-memory SQLite database.
+- **Frontend (`apps/web`)**: Component tests using `vitest`, `@testing-library/react`, and `jsdom`.
+- **Shared Packages**: Unit tests for schemas and utilities using `bun:test`.
+
+Run all tests with:
+```bash
+pnpm test
+```

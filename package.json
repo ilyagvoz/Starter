@@ -6,7 +6,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "test": "turbo run test",
+    "test": "bun run scripts/test-summary.ts",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "update-deps": "pnpm update -r"
   },

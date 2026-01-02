@@ -66,12 +66,41 @@ pnpm db:seed`}
       </section>
 
       <section className="mb-12">
+        <h2 className="mb-6 text-2xl font-bold text-white">Authentication</h2>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-6 text-2xl font-bold text-white">Testing</h2>
+        <p className="text-slate-400 mb-4">
+            The monorepo ensures reliability through a multi-layer testing strategy.
+        </p>
+        <div className="space-y-4 text-slate-300">
+            <ul className="list-disc pl-6 space-y-2">
+                <li><strong className="text-white">API Integration:</strong> Tests in <code className="bg-slate-800 px-1 rounded">apps/api</code> run with <code className="bg-slate-800 px-1 rounded">bun:test</code> using an in-memory SQLite instance for fast, isolated execution.</li>
+                <li><strong className="text-white">Frontend Components:</strong> Tests in <code className="bg-slate-800 px-1 rounded">apps/web</code> use <code className="bg-slate-800 px-1 rounded">vitest</code> and <code className="bg-slate-800 px-1 rounded">@testing-library/react</code> to verify UI behavior and state.</li>
+                <li><strong className="text-white">Shared Logic:</strong> Schemas and utilities in <code className="bg-slate-800 px-1 rounded">packages/shared</code> are unit tested to ensure consistency across the stack.</li>
+            </ul>
+        </div>
+        <p className="text-slate-400 mb-4">
+            The project comes with a complete authentication system out of the box.
+        </p>
+        <div className="space-y-4 text-slate-300">
+            <ul className="list-disc pl-6 space-y-2">
+                <li><strong className="text-white">Backend:</strong> Uses <code className="bg-slate-800 px-1 rounded">hono/jwt</code> for token generation and <code className="bg-slate-800 px-1 rounded">Bun.password</code> for secure hashing.</li>
+                <li><strong className="text-white">Frontend:</strong> Includes <code className="bg-slate-800 px-1 rounded">AuthContext</code> for managing session state and persisting tokens in LocalStorage.</li>
+                <li><strong className="text-white">Type Safety:</strong> Shared Zod schemas for registration and login validation across API and UI.</li>
+            </ul>
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="mb-6 text-2xl font-bold text-white">Available Scripts</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <ScriptCard cmd="pnpm dev" desc="Start development servers for all apps." />
           <ScriptCard cmd="pnpm build" desc="Build all apps and packages." />
           <ScriptCard cmd="pnpm lint" desc="Lint all apps and packages." />
           <ScriptCard cmd="pnpm typecheck" desc="Run TypeScript checks across the workspace." />
+          <ScriptCard cmd="pnpm update-deps" desc="Update all dependencies recursively." />
         </div>
       </section>
     </div>
