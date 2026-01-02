@@ -23,25 +23,17 @@ A high-performance, type-safe, and scalable full-stack web application starter k
 
 ```text
 starter/
+├── .gemini/                 # AI agent context files (Base UI, etc.)
 ├── .github/                 # CI/CD workflows
 ├── apps/
 │   ├── api/                 # Backend (Bun + Hono + Drizzle)
-│   │   ├── src/
-│   │   │   ├── db/          # Database schema & client
-│   │   │   ├── env.ts       # Type-safe env validation
-│   │   │   └── index.ts     # App entry point
-│   │   └── package.json
 │   └── web/                 # Frontend (React + Vite + Tailwind)
-│       ├── src/
-│       │   ├── components/  # UI Components (Base UI powered)
-│       │   ├── lib/         # Utils
-│       │   └── App.tsx
-│       └── package.json
 ├── packages/
 │   ├── shared/              # Shared logic (Zod schemas, types)
 │   ├── eslint-config/       # Shared ESLint configurations
 │   ├── tailwind-config/     # Shared Tailwind configuration
 │   └── tsconfig/            # Shared TypeScript base configs
+├── AGENTS.md                # AI Agent guidelines and resource map
 ├── turbo.json               # Pipeline configuration
 ├── package.json             # Root manifest
 └── pnpm-workspace.yaml      # Workspace definition
