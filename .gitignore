@@ -5,3 +5,4 @@ dist
 .turbo
 coverage
 apps/api/*.db
+*.log
