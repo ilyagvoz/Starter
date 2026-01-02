@@ -5,7 +5,8 @@ import { describe, it, expect, vi, afterEach } from "vitest";
 import Home from "./Home";
 
 // Mock the fetch API
-global.fetch = vi.fn();
+const fetchMock = vi.fn();
+globalThis.fetch = fetchMock;
 
 function createTestQueryClient() {
   return new QueryClient({
@@ -30,7 +31,7 @@ describe("Home Page", () => {
 
   it("renders loading state initially", () => {
     // Mock a promise that doesn't resolve immediately
-    (global.fetch as any).mockReturnValue(new Promise(() => {}));
+    fetchMock.mockReturnValue(new Promise(() => {}));
 
     render(<Home />, { wrapper });
     
@@ -45,7 +46,7 @@ describe("Home Page", () => {
       { id: 2, name: "Bob", email: "bob@example.com", createdAt: new Date().toISOString() },
     ];
 
-    (global.fetch as any).mockResolvedValue({
+    fetchMock.mockResolvedValue({
       json: async () => mockUsers,
     });
 

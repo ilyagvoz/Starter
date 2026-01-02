@@ -7,11 +7,12 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "update-deps": "pnpm update -r"
   },
   "devDependencies": {
-    "turbo": "^1.10.14",
-    "prettier": "^3.0.3"
+    "prettier": "^3.7.4",
+    "turbo": "^2.7.2"
   },
   "packageManager": "pnpm@8.10.0",
   "engines": {

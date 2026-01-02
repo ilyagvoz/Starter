@@ -1,10 +1,12 @@
 import { describe, expect, it, beforeAll, beforeEach } from "bun:test";
 import { join } from "path";
 import { readFileSync } from "fs";
-import { eq, sql } from "drizzle-orm";
+import { type InferSelectModel } from "drizzle-orm";
 import { db, client } from "./db";
 import { users } from "./db/schema";
 import app from "./index";
+
+type User = InferSelectModel<typeof users>;
 
 // Setup: Run migrations on the in-memory DB before tests start
 beforeAll(async () => {
@@ -15,7 +17,7 @@ beforeAll(async () => {
 
 // Cleanup: Clear tables between tests for isolation
 beforeEach(async () => {
-  await db.run(sql`DELETE FROM users`);
+  await db.delete(users);
 });
 
 describe("API Integration", () => {
@@ -65,7 +67,7 @@ describe("API Integration", () => {
       const getRes = await app.fetch(new Request("http://localhost/users"));
       expect(getRes.status).toBe(200);
       
-      const allUsers = (await getRes.json()) as any[];
+      const allUsers = (await getRes.json()) as User[];
       expect(allUsers.length).toBe(1);
       expect(allUsers[0].name).toBe(newUser.name);
       expect(allUsers[0].email).toBe(newUser.email);
